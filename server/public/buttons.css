@@ -1,0 +1,111 @@
+/* MINT BUTTON */
+.mint-btn {
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 216px;
+  height: 56px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: var(--primary-purple);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  text-transform: uppercase;
+}
+
+.mint-btn:hover::after {
+  background: #000;
+}
+
+.mint-btn:before {
+  content: '';
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 18px);
+  height: calc(100% + 18px);
+  animation: glowing 17s linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  border-radius: 10px;
+}
+
+.mint-btn:active {
+  color: var(--primary-purple);
+}
+
+.mint-btn:active:after {
+  background: transparent;
+}
+
+.mint-btn:hover:before {
+  opacity: 1;
+}
+
+.mint-btn:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-purple);
+  left: 0;
+  top: 0;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* VIEW ALL BUTTON */
+.view-btn {
+  margin-left: 50px;
+  width: 216px;
+  height: 56px;
+  border: none;
+  outline: none;
+  color: #fff;
+  /* background: var(--secondary-blue); */
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  text-transform: uppercase;
+}
+
+.view-btn {
+  border-color: var(--primary-blue);
+  color: #fff;
+  box-shadow: 0 0 40px 40px var(--primary-blue) inset,
+    0 0 0 0 var(--primary-blue);
+  transition: all 150ms ease-in-out;
+}
+
+.view-btn:hover {
+  background: var(--secondary-blue);
+  box-shadow: 0 0 12px 0 var(--primary-blue) inset,
+    0 0 12px 4px var(--primary-blue);
+}
