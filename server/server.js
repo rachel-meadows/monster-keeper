@@ -8,7 +8,7 @@ server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
 server.use(cors('*'))
 
-server.use('/api/v1/placeholder', placeholder)
+// server.use('/api/v1/placeholder', placeholder)
 
 server.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
