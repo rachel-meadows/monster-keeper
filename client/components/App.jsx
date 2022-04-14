@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './Home.jsx'
-
+import Form from './Form.jsx'
 // agree and import components
 // suggested: Home, Collection, Add, Fight etc.
 
