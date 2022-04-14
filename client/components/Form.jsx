@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 
 
 function Form(props) {
+  //To do: pass info from mint page to form as props for input state, connect handle submit to API 
+
 
   //Create input state
   const [input, setInput] = useState({
@@ -21,7 +23,7 @@ function Form(props) {
   //function to handle the submit of the data to the API?
   function handleSubmit(event) {
     event.preventDefault()
-    // addNewMonster(input)
+    // addNewMonster(input) //API function to add new monster, hasn't been written yet
   }
 
   return(
@@ -38,6 +40,7 @@ function Form(props) {
             <form>
               <label htmlFor='name'>Name:</label>
               <input onChange={handleChange} value={input.name} type='text' name='name' required/>
+              <label htmlFor='description'>Backstory:</label>
               <input onChange={handleChange} value={input.description} type='text' name='description' required/>
               <button onClick={handleSubmit}>Save</button>
             </form>
