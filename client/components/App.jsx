@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './Home.jsx'
-
+import Form from './Form.jsx'
 // agree and import components
 // suggested: Home, Collection, Add, Fight etc.
 
@@ -12,6 +12,7 @@ const App = () => {
       <Routes>
         <Route path='/home' element={<Home />}/>
         {/* <Route path='/component' element={<Component />}/> */}
+        <Route path='/add' element={<Form />}/>
       </Routes>
     </div>
   )
