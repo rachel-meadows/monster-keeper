@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { getImage } from '../apiClient.js'
+import { Link } from 'react-router-dom'
 
 function MintBox() {
   //Get image from API
@@ -15,7 +16,7 @@ function MintBox() {
       <img src={image} alt="Monster Image"/>
       <p>Health: {health}</p>
       <p>Damage: {damage}</p>
-      <button>KEEP</button>
+      <Link to='/add'>KEEP</Link>
     </div>
   )
 }
