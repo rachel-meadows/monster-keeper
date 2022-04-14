@@ -11,6 +11,7 @@
     "dev": "run-p dev:client dev:server",
     "dev:client": "npm run webpack -- --watch",
     "dev:server": "nodemon server",
+    "knex": "knex --knexfile server/db/knexfile.js",
     "start": "node server",
     "build": "npm run webpack",
     "server": "node server",
@@ -41,7 +42,9 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "knex": "^1.0.3",
+    "@vscode/sqlite3": "^5.0.8"
   },
   "devDependencies": {
     "@babel/core": "7.13.1",
