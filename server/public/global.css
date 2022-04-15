@@ -22,3 +22,9 @@ textarea,
 select {
   font: inherit;
 }
+
+a {
+  color: inherit;
+  font-family: inherit;
+  text-decoration: none;
+}
