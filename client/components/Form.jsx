@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
+
 function Form({image, damage, health }) {
+
 
   //Create input state
   const [input, setInput] = useState({
@@ -21,6 +23,7 @@ function Form({image, damage, health }) {
     event.preventDefault()
     console.log(input)
     // addNewMonster(input)
+
   }
 
   return(
@@ -37,6 +40,7 @@ function Form({image, damage, health }) {
             <form>
               <label htmlFor='name'>Name:</label>
               <input onChange={handleChange} value={input.name} type='text' name='name' required/>
+              <label htmlFor='description'>Backstory:</label>
               <input onChange={handleChange} value={input.description} type='text' name='description' required/>
               <button onClick={handleSubmit}>Save</button>
             </form>

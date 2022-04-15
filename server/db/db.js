@@ -6,14 +6,28 @@ function getMonsters(db = connection) {
   return db('monsters').select()
 }
 
-function addMonster(db = connection) {
-
+function addMonster(data, db = connection) {
+return db('monsters')
+.insert(
+  {...data,  capture_date: new Date(Date.now())
+  })
+.then((id) => id[0])
 }
+
+function getMonsterById(id, db = connection) {
+  return db('monsters')
+  .where('id', id)
+  .select()
+}
+
+
+
 
 function deleteMonster(db = connection) {
 
 }
 
 module.exports = {
-  getMonsters
+  getMonsters, 
+  addMonster, getMonsterById
 }

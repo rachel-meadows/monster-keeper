@@ -26,12 +26,19 @@ function MintBox({setForm }) {
     })
   }, [])
 
+
   return (
-    <div>
-      <img src={image} alt="Monster Image"/>
-      <p>Health: {health}</p>
-      <p>Damage: {damage}</p>
-      <Link to='/add'>KEEP</Link>
+    <div className="mint-container">
+      <div className="mint-container-right">
+        <img src={image} alt="Monster Image" />
+      </div>
+      <div className="mint-container-left">
+        <p>Health: {health}</p>
+        <p>Damage: {damage}</p>
+        <button className="save-btn">
+          <Link to="/add">Save</Link>
+        </button>
+      </div>
     </div>
   )
 }
