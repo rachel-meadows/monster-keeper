@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
 
 
-
-function Form(props) {
-  //To do: pass info from mint page to form as props for input state, connect handle submit to API 
+function Form({image, damage, health }) {
 
 
   //Create input state
   const [input, setInput] = useState({
-    image: '', //props.image will go here
+    image: image, 
     name: '',
     description: '',
-    health: 0, //props.health will go here
-    damage: 0, //props.damage will go here
+    health: health, 
+    damage: damage, 
   })
 
   //function to handle changes in form
@@ -23,7 +21,9 @@ function Form(props) {
   //function to handle the submit of the data to the API?
   function handleSubmit(event) {
     event.preventDefault()
-    // addNewMonster(input) //API function to add new monster, hasn't been written yet
+    console.log(input)
+    // addNewMonster(input)
+
   }
 
   return(

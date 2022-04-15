@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import MintBox from './MintBox.jsx'
+
 import Loading from './Loading.jsx'
 
-function Home() {
+function Home({ setForm }) {
   const [next, setNext] = useState(0)
   const [loading, setLoading] = useState(false)
 
@@ -44,8 +45,9 @@ function Home() {
           </Link>
         </button>
       </div>
-      {next > 0 && loading ? <Loading /> : <MintBox />}
+      {next > 0 && loading ? <Loading /> : <MintBox {setForm}/>}
     </div>
+
   )
 }
 
