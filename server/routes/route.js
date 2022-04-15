@@ -30,7 +30,16 @@ router.get('/add', (req, res) => {
 // POST route for add page ( /add) - the user has clicked 'save'
 router.post('/add', (req, res) => {
   const formData = req.body
-  db.addMonster(formData)
+  const monsterDataReshaped = {
+    image: formData.image,
+    name: formData.name,
+    description: formData.description,
+    health: formData.health,
+    damage: formData.damage,
+    capture_date: new Date(Date.now()),
+  }
+  console.log('Up to the POST route')
+  db.addMonster(monsterDataReshaped)
     .then((id) => {
       return res.redirect(`/collection${id}`)
     })

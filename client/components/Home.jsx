@@ -15,7 +15,7 @@ function Home({ setForm }) {
     }, 1000)
     // add API here
   }, [next])
-  console.log(next)
+  // console.log(next)
   function handleNext() {
     setNext(next + 1)
   }
