@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { addNewMonster } from '../apiClient.js'
+import { useNavigate } from 'react-router-dom'
 
 function Form(props) {
   console.log(props.form)
+
+  const navigate = useNavigate()
 
   //Create input state
   const [input, setInput] = useState({
@@ -22,7 +25,7 @@ function Form(props) {
   function handleSubmit(event) {
     event.preventDefault()
     console.log(input)
-    addNewMonster(input)
+    addNewMonster(input).then(() => navigate('/collection')).catch(err => console.error(err))
   }
 
   return (
