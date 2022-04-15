@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { addNewMonster } from '../apiClient.js'
 
 function Form(props) {
   console.log(props.form)
@@ -21,7 +22,7 @@ function Form(props) {
   function handleSubmit(event) {
     event.preventDefault()
     console.log(input)
-    // addNewMonster(input)
+    addNewMonster(input)
   }
 
   return (

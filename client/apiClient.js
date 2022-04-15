@@ -19,5 +19,8 @@ export function getMonsters() {
 // Function to send new monster to back end
 // Just storing data in db, then redirecting
 export function addNewMonster(input) {
-  return request.post('/api/v1/add').send(input)
+  return request
+    .post('/api/v1/add')
+    .send(input)
+    .then(console.log('Up to APIClient'))
 }
