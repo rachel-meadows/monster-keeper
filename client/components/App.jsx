@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div className="container">
       <Link to="/home">
-        <h1 className="app-title">Team Godzilla</h1>
+        <h1 className="app-title">Monster Keeper</h1>
       </Link>
       <Routes>
 
