@@ -1,13 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import MintBox from './MintBox.jsx'
+import Loading from './Loading.jsx'
 
 function Home() {
   const [next, setNext] = useState(0)
   const [loading, setLoading] = useState(false)
 
-  function handleClick() {
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 5000)
+    // add API here
+  }, [next])
+  console.log(next)
+  function handleNext() {
     setNext(next + 1)
+  }
+
+  function handleNextReset() {
+    setNext(0)
   }
 
   return (
@@ -22,14 +35,16 @@ function Home() {
       </p>
 
       <div className="home-btn-container">
-        <button className="mint-btn" onClick={handleClick}>
+        <button className="mint-btn" onClick={handleNext}>
           MINT
         </button>
         <button className="view-btn">
-          <Link to="/component">VIEW ALL</Link>
+          <Link to="/component" onClick={handleNextReset}>
+            VIEW ALL
+          </Link>
         </button>
       </div>
-      {next > 0 && <MintBox />}
+      {next > 0 && loading ? <Loading /> : <MintBox />}
     </div>
   )
 }
