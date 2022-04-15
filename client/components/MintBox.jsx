@@ -35,9 +35,9 @@ function MintBox({ setForm }) {
         <img src={image} alt="Monster Image" />
       </div>
       <div className="mint-container-left">
-        <p>Health: {health}</p>
+        <p className='margin-bottom'>Health: {health}</p>
         <p>Damage: {damage}</p>
-        <button className="save-btn">
+        <button className="save-btn margin-right">
           <Link to="/add">Save</Link>
         </button>
       </div>

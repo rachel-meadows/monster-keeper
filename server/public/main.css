@@ -234,7 +234,6 @@ html {
 .container {
   margin: 0 auto;
   width: 600px;
-  height: 650px;
   margin-top: 40px;
   padding: 40px;
   background: rgba(0, 0, 0, 0.25);
@@ -274,4 +273,8 @@ html {
   align-items: center;
   justify-content: space-evenly;
   margin-top: 30px;
+}
+
+.margin-bottom {
+  margin-bottom: 10px;
 }
