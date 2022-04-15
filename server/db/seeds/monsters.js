@@ -12,7 +12,7 @@ exports.seed = async function (knex) {
       description: `A real tough guy`,
       health: 10,
       damage: 12,
-      capture_date: new Date(Date.now()),
+      capture_date: new Date().toLocaleDateString(),
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ exports.seed = async function (knex) {
       description: `We can all relate to this charming little gremlin`,
       health: 5,
       damage: 10,
-      capture_date: new Date(Date.now()),
+      capture_date: new Date().toLocaleDateString(),
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ exports.seed = async function (knex) {
       description: `He's a werewolf AND a swearwolf!`,
       health: 7,
       damage: 15,
-      capture_date: new Date(Date.now()),
+      capture_date: new Date().toLocaleDateString(),
     },
   ])
 }
