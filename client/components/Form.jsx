@@ -37,23 +37,29 @@ function Form(props) {
             <p>Health: {input.health}</p>
             <p>Damage: {input.damage}</p>
             <form>
-              <label htmlFor="name">Name:</label>
-              <input
-                onChange={handleChange}
-                value={input.name}
-                type="text"
-                name="name"
-                required
-              />
-              <label htmlFor="description">Backstory:</label>
-              <input
-                onChange={handleChange}
-                value={input.description}
-                type="text"
-                name="description"
-                required
-              />
-              <button onClick={handleSubmit} className="view-btn">
+              <div>
+                <label htmlFor="name">Name:</label>
+                <input
+                  onChange={handleChange}
+                  value={input.name}
+                  type="text"
+                  name="name"
+                  className="input-field-name"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="description">Backstory:</label>
+                <input
+                  onChange={handleChange}
+                  value={input.description}
+                  type="text"
+                  name="description"
+                  className="input-field-back"
+                  required
+                />
+              </div>
+              <button onClick={handleSubmit} className="save-btn">
                 Save
               </button>
             </form>
