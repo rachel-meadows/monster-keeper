@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import MintBox from './MintBox.jsx'
 
 
-
-function Home() {
+function Home({ setForm }) {
   const [next, setNext] = useState(0)
+  // const [passToApp, setPassToApp] = useState(0)
  
   function handleClick(){
     setNext(next + 1)
@@ -17,7 +17,7 @@ function Home() {
       <button onClick={handleClick}>MINT</button>
       <Link to='/component'>VIEW ALL</Link>
       {(next > 0) &&
-        <MintBox />
+        <MintBox setForm={setForm}/>
       }
     </>
   )
