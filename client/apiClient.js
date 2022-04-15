@@ -1,17 +1,23 @@
 import request from 'superagent'
 
-const monsterUrl = '/api/v1/monsters' // ONly a suggestion, need to agree with backend
-
-//Returns a string for the src of the image
+// Returns a string for the src of the image
 export function getImage() {
   // return request.get(monsterUrl)
   return Promise.resolve('Placeholder URL for Image')
 }
 
-//funtion to send new monster to back end
+// Returns the monster object, will replace getImage when up to it
+export function getMonster() {
+  return request.post('/api/v1/')
+}
+
+// Returns all monster objects in db - NOTE PLURAL!
+export function getMonsters() {
+  return request.get('/api/v1/collection')
+}
+
+// Function to send new monster to back end
+// Just storing data in db, then redirecting
 export function addNewMonster(input) {
-  return request
-    .post(monsterUrl)
-    .send(input)
-    .then((response) => response.body)
+  return request.post('/api/v1/add').send(input)
 }

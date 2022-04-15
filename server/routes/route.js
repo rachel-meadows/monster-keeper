@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
   const health = helpers.generateRandomNumber(100)
   const damage = helpers.generateRandomNumber(100)
   const monsterData = {
-    image: 'nothing yet!',
+    image: 'No image yet!',
     health: health,
     damage: damage,
   }
@@ -30,17 +30,10 @@ router.get('/add', (req, res) => {
 // POST route for add page ( /add) - the user has clicked 'save'
 router.post('/add', (req, res) => {
   const formData = req.body
-  //   {
-  //   name: 'name'
-  //   image: 'nothing yet!',
-  //   health: health,
-  //   damage: damage,
-  //   description: 'description'
-  // }
-    db.addMonster(formData)
-      .then((id) => {
-        return (id)
-      })
+  db.addMonster(formData)
+    .then((id) => {
+      return res.redirect(`/collection${id}`)
+    })
     .catch((err) => {
       res.status(500).send(err.message)
     })
@@ -49,6 +42,18 @@ router.post('/add', (req, res) => {
 // GET route for collection page ( /collection )
 router.get('/collection', (req, res) => {
   db.getMonsters()
+    .then((monsters) => {
+      return res.json(monsters)
+    })
+    .catch((err) => {
+      res.status(500).send(err.message)
+    })
+})
+
+// GET route to display monster by id
+router.get('/collection/:id', (req, res) => {
+  const data = req.params.id
+  db.getMonstersById(data)
     .then((monster) => {
       return res.json(monster)
     })
@@ -56,18 +61,6 @@ router.get('/collection', (req, res) => {
       res.status(500).send(err.message)
     })
 })
-
-  // GET route to display monster by id
-  router.get('/collection/:id', (req, res) => {
-    const data = req.params.id
-    db.getMonstersById(data)
-      .then((monster) => {
-        return res.json(monster)
-      })
-      .catch((err) => {
-        res.status(500).send(err.message)
-      })
-  })
 
 // Routes / Pages
 
