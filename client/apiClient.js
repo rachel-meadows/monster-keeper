@@ -1,5 +1,4 @@
 import request from 'superagent'
-import { response } from '../server/server'
 
 const monsterUrl = '/api/v1/monsters' // ONly a suggestion, need to agree with backend
 
@@ -12,7 +11,7 @@ export function getImage() {
 //funtion to send new monster to back end
 export function addNewMonster(input) {
   return request
-  .post(monsterUrl)
-  .send(input)
-  .then((response) => response.body)
+    .post(monsterUrl)
+    .send(input)
+    .then((response) => response.body)
 }
