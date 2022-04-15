@@ -45,9 +45,8 @@ function Home({ setForm }) {
           </Link>
         </button>
       </div>
-      {next > 0 && loading ? <Loading /> : <MintBox {setForm}/>}
+      {next > 0 && loading ? <Loading /> : <MintBox setForm={setForm} />}
     </div>
-
   )
 }
 
