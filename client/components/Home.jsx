@@ -12,7 +12,7 @@ function Home({ setForm }) {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 5000)
+    }, 1000)
     // add API here
   }, [next])
   console.log(next)
