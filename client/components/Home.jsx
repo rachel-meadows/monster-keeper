@@ -40,7 +40,7 @@ function Home({ setForm }) {
           MINT
         </button>
         <button className="view-btn">
-          <Link to="/component" onClick={handleNextReset}>
+          <Link to="/collection" onClick={handleNextReset}>
             VIEW ALL
           </Link>
         </button>
