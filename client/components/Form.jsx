@@ -52,7 +52,9 @@ function Form(props) {
                 name="description"
                 required
               />
-              <button onClick={handleSubmit}>Save</button>
+              <button onClick={handleSubmit} className="view-btn">
+                Save
+              </button>
             </form>
           </div>
         </div>
