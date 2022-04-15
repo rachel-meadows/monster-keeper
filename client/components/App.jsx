@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import Home from './Home.jsx'
 import Form from './Form.jsx'
 // agree and import components
@@ -7,12 +7,14 @@ import Form from './Form.jsx'
 
 const App = () => {
   return (
-    <div>
-      <h1>Team Godzilla</h1>
+    <div className="container">
+      <Link to="/home">
+        <h1 className="app-title">Team Godzilla</h1>
+      </Link>
       <Routes>
-        <Route path='/home' element={<Home />}/>
-        <Route path='/collection' element={<Collection />}/>
-        <Route path='/add' element={<Form />}/>
+        <Route path="/home" element={<Home />} />
+        {/* <Route path="/collection" element={<Collection />} /> */}
+        <Route path="/add" element={<Form />} />
       </Routes>
     </div>
   )
