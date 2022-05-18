@@ -3,16 +3,14 @@ const router = express.Router()
 const request = require('superagent')
 
 const db = require('../db/db')
-const helpers = require('../helpers')
 
-router.get('/monster', (req, res) => {
+router.get('/monster', async (req, res) => {
   request
     .get('https://app.pixelencounter.com/api/basic/monsters/random')
     .set('accept', 'application/json')
     .then((data) => {
-      res.json({
-        image: data.body,
-      })
+      const base64 = data.body.toString('base64')
+      return res.send(base64)
     })
     .catch((err) => {
       console.error(err.message)

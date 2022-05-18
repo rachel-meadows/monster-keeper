@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import MintBox from './MintBox.jsx'
 import Loading from './Loading.jsx'
 import { getNewMonsterImageAPI } from '../api'
+import { convertToBase64 } from './utils'
 
 function Home({ setForm }) {
   const [monster, setMonster] = useState({})
@@ -11,6 +12,7 @@ function Home({ setForm }) {
   const damageRandom = Math.floor(Math.random() * 100 + 1)
   const [health, setHealth] = useState(healthRandom)
   const [damage, setDamage] = useState(damageRandom)
+  const [image, setImage] = useState('')
 
   useEffect(() => {
     getNewMonster()
@@ -18,22 +20,16 @@ function Home({ setForm }) {
 
   function getNewMonster() {
     setLoading(true)
-    getNewMonsterImageAPI().then((image) => {
-      setMonster({ image: image, health: health, damage: damage })
+    getNewMonsterImageAPI().then((data) => {
+      setImage('data:image/svg+xml;base64,' + data)
+      setMonster({
+        image: 'data:image/svg+xml;base64,' + data,
+        health: health,
+        damage: damage,
+      })
       setLoading(false)
     })
   }
-
-  //   return (
-  //     <>
-  //       <h1>{meal.strMeal}</h1>
-  //       <p>{meal.strInstructions}</p>
-  //       <button onClick={handleClick}>Another meal please</button>
-  //       <br></br>
-  //       {loading && <img src="/pizza_loading.gif" alt="loading icon" />}
-  //     </>
-  //   )
-  // }
 
   return (
     <div>
@@ -54,6 +50,7 @@ function Home({ setForm }) {
           <Link to="/collection">VIEW ALL</Link>
         </button>
       </div>
+      <img src={`${image}`} alt="" />
       {loading ? <Loading /> : <MintBox monster={monster} />}
     </div>
   )
