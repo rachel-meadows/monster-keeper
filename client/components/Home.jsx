@@ -8,11 +8,8 @@ import { convertToBase64 } from './utils'
 function Home({ setForm }) {
   const [monster, setMonster] = useState({})
   const [loading, setLoading] = useState(false)
-  const healthRandom = Math.floor(Math.random() * 100 + 1)
-  const damageRandom = Math.floor(Math.random() * 100 + 1)
-  const [health, setHealth] = useState(healthRandom)
-  const [damage, setDamage] = useState(damageRandom)
-  const [image, setImage] = useState('')
+  const health = Math.floor(Math.random() * 100 + 1)
+  const damage = Math.floor(Math.random() * 100 + 1)
 
   useEffect(() => {
     getNewMonster()
@@ -21,9 +18,9 @@ function Home({ setForm }) {
   function getNewMonster() {
     setLoading(true)
     getNewMonsterImageAPI().then((data) => {
-      setImage('data:image/svg+xml;base64,' + data)
+      const image = 'data:image/svg+xml;base64,' + data
       setMonster({
-        image: 'data:image/svg+xml;base64,' + data,
+        image: image,
         health: health,
         damage: damage,
       })

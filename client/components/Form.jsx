@@ -22,7 +22,6 @@ function Form(props) {
   //function to handle the submit of the data to the API?
   function handleSubmit(event) {
     event.preventDefault()
-    console.log(input)
     addNewMonster(input)
       .then(() => navigate('/collection'))
       .catch((err) => console.error(err))
