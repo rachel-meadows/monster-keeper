@@ -299,4 +299,16 @@ html {
   padding: 20px;
   font-size: 12px;
   margin-bottom: 10px;
+  display: flex;
+  gap: 30px;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.collection__image {
+  width: 100px;
 }
