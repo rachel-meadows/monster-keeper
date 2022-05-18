@@ -1,23 +1,23 @@
 const express = require('express')
 const router = express.Router()
+const request = require('superagent')
 
 const db = require('../db/db')
 const helpers = require('../helpers')
 
-// POST route for home - after clicking 'MINT'
-router.post('/', (req, res) => {
-  // Do later - get image from external API
-  //
-
-  // Get health and damage stats
-  const health = helpers.generateRandomNumber(100)
-  const damage = helpers.generateRandomNumber(100)
-  const monsterData = {
-    image: 'No image yet!',
-    health: health,
-    damage: damage,
-  }
-  return monsterData
+router.get('/monster', (req, res) => {
+  request
+    .get('https://app.pixelencounter.com/api/basic/monsters/random')
+    .set('accept', 'application/json')
+    .then((data) => {
+      res.json({
+        image: data.body,
+      })
+    })
+    .catch((err) => {
+      console.error(err.message)
+      res.error(err.message)
+    })
 })
 
 // GET route for add page ( /add)

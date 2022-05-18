@@ -1,28 +1,39 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import MintBox from './MintBox.jsx'
-
 import Loading from './Loading.jsx'
+import { getNewMonsterImageAPI } from '../api'
 
 function Home({ setForm }) {
-  const [next, setNext] = useState(0)
+  const [monster, setMonster] = useState({})
   const [loading, setLoading] = useState(false)
+  const healthRandom = Math.floor(Math.random() * 100 + 1)
+  const damageRandom = Math.floor(Math.random() * 100 + 1)
+  const [health, setHealth] = useState(healthRandom)
+  const [damage, setDamage] = useState(damageRandom)
 
   useEffect(() => {
+    getNewMonster()
+  }, [])
+
+  function getNewMonster() {
     setLoading(true)
-    setTimeout(() => {
+    getNewMonsterImageAPI().then((image) => {
+      setMonster({ image: image, health: health, damage: damage })
       setLoading(false)
-    }, 4000)
-    // add API here
-  }, [next])
-  // console.log(next)
-  function handleNext() {
-    setNext(next + 1)
+    })
   }
 
-  function handleNextReset() {
-    setNext(0)
-  }
+  //   return (
+  //     <>
+  //       <h1>{meal.strMeal}</h1>
+  //       <p>{meal.strInstructions}</p>
+  //       <button onClick={handleClick}>Another meal please</button>
+  //       <br></br>
+  //       {loading && <img src="/pizza_loading.gif" alt="loading icon" />}
+  //     </>
+  //   )
+  // }
 
   return (
     <div>
@@ -36,16 +47,14 @@ function Home({ setForm }) {
       </p>
 
       <div className="home-btn-container">
-        <button className="mint-btn" onClick={handleNext}>
+        <button className="mint-btn" onClick={getNewMonster}>
           MINT
         </button>
         <button className="view-btn">
-          <Link to="/collection" onClick={handleNextReset}>
-            VIEW ALL
-          </Link>
+          <Link to="/collection">VIEW ALL</Link>
         </button>
       </div>
-      {next > 0 && loading ? <Loading /> : <MintBox setForm={setForm} />}
+      {loading ? <Loading /> : <MintBox monster={monster} />}
     </div>
   )
 }
