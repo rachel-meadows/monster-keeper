@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { getImage } from '../apiClient.js'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 function MintBox({ monster }) {
@@ -7,9 +6,7 @@ function MintBox({ monster }) {
 
   return (
     <div className="mint-container">
-      <div className="mint-container-right">
-        <img src={image} alt="Monster Image" />
-      </div>
+      <img src={image} alt="Monster Image" />
       <div className="mint-container-left">
         <p className="margin-bottom">Health: {health}</p>
         <p>Damage: {damage}</p>

@@ -31,6 +31,10 @@ function Home({ setForm }) {
     })
   }
 
+  useEffect(() => {
+    setForm(monster)
+  }, [monster])
+
   return (
     <div>
       <p>
@@ -50,7 +54,6 @@ function Home({ setForm }) {
           <Link to="/collection">VIEW ALL</Link>
         </button>
       </div>
-      <img src={`${image}`} alt="" />
       {loading ? <Loading /> : <MintBox monster={monster} />}
     </div>
   )

@@ -23,7 +23,7 @@ const App = () => {
       <Routes>
         <Route path="/home" element={<Home setForm={setForm} />} />
         <Route path="/collection" element={<Collection />} />
-        <Route path="/add" element={<Form />} />
+        <Route path="/add" element={<Form form={form} />} />
       </Routes>
     </div>
   )
