@@ -36,7 +36,6 @@ router.post('/add', (req, res) => {
     damage: formData.damage,
     capture_date: new Date().toLocaleDateString(),
   }
-  console.log('Up to the POST route')
   db.addMonster(monsterDataReshaped)
     .then((id) => {
       return res.redirect(`/collection${id}`)
