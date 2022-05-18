@@ -30,7 +30,6 @@ function Form(props) {
   return (
     <>
       <div>
-        <h1>Godzilla pixel</h1>
         <div className="form-box">
           <div className="image">
             <img src={input.image}></img>
@@ -55,7 +54,7 @@ function Form(props) {
                 <input
                   onChange={handleChange}
                   value={input.description}
-                  type="text"
+                  type="textBox"
                   name="description"
                   className="input-field-back"
                   required

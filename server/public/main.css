@@ -308,6 +308,11 @@ html {
   align-items: center;
 }
 
+.image {
+  width: 23vw;
+  padding: 3vw;
+}
+
 .collection__image {
   width: 100px;
 }
